@@ -1,14 +1,21 @@
 .header {  
   height: 150px;
-  background-color: green;  
-  margin: 0px;
+  background-color: red;  
+  display: flex;
 }
 
 .header h2 {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;	
-  padding: 50px;
-  margin-left: 80px;
-  font-size: 30px;
+  font-family: Helvetica, sans-serif;	
+  color: white;
+  font-size: 40px;
+  flex-grow: 1;
+}
+
+.imgs img {
+  height: 100px;
+  flex-grow: 3;
+  padding: 30px;
+  
 }
 /*
 .source-input {
@@ -69,39 +76,5 @@ textarea {
   float: left;
 }
 
-input {
-  width: 100px;
-  height: 50px;
-  margin: 50px;
-  border-radius: 4px;
-  -webkit-transition-duration: 0.2s; /* Safari */
-  transition-duration: 0.2s;
-  font-size: 16px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;	
-  background-color: #364D8E;
-  color: white;
-}
 
-input:hover {
-  background-color: #4682B4; /* Green */
-  color: white;
-}
-
-.flex-container {
-  /*border: 2px solid red; */
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: baseline;
-  width: 100%;
-  margin: 0 auto;
-  height: 360px;
-}
-
-.header h2 {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;	
-  padding: 50px;
-  margin-left: 80px;
-  font-size: 30px;
-}
 */
