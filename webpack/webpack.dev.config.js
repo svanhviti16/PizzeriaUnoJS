@@ -1,11 +1,11 @@
-var webpack = require('webpack');
+//var webpack = require('webpack');
 var path = require('path');
 
 var parentDir = path.join(__dirname, '../');
 
 module.exports = {
     entry: [
-        path.join(parentDir, 'index.js')
+        path.join(parentDir, 'App.js')
     ],
     module: {
         rules: [
@@ -21,7 +21,7 @@ module.exports = {
         loaders: [ 
             { test: /(\.css$)/, loaders: ['style-loader', 'css-loader', 'postcss-loader'] }, 
             { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-            { test: /\.(gif|svg|jpg|png)$/,loader: "file-loader"  }  
+            //{ test: /\.(gif|svg|jpg|png)$/,loader: "file-loader"  }  
         ],
     },
     output: {

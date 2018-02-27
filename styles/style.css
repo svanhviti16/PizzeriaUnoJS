@@ -2,10 +2,11 @@
   height: 150px;
   background-color: red;  
   display: flex;
+  margin-top: -8px;
 }
 
 .header h2 {
-  font-family: Helvetica, sans-serif;	
+  font-family: 'Comfortaa', Helvetica, sans-serif;	
   color: white;
   font-size: 40px;
   flex-grow: 1;
@@ -13,68 +14,25 @@
 
 .imgs img {
   height: 100px;
-  flex-grow: 3;
+  flex-grow: 2;
   padding: 30px;
-  
-}
-/*
-.source-input {
-  border: 1px #fab solid;
-  height: 150px;
 }
 
-.source-input label {
-  display: block;
-  clear: left;
-  position: relative;
-  bottom: 35px;
-  left: 130px;
-  font-size: 18px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;	
+.nav-link-wrapper {
+  float: right;
 }
 
-.main-container {
-  border: 1px solid red; 
-
+.nav-link {
+  background-color: brown;
+  margin: 10px;
+  padding: 50px;
+  text-align: center; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
-.translation-container {
-  border-top: 1px solid black; 
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  margin: 0 auto;
-  height: 360px;
-  background-color: #F8F8F8;
-}
-
-
-.result-item {
-  width: 450px;
-  height: 200px;
-  border: 1px black solid;
-  list-style-type: none;
-  margin: 50px; 
-  background-color: white;
+.sub-pages {
+  justify-content: center;
+  align-items: center;
 
 }
-
-
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-#textbox {
-  width: 450px;
-  height: 100px;
-  margin: 50px 50px 50px 130px;
-  box-sizing: border-box;
-  font-size: 16px;
-  font-family: helvetica;
-  float: left;
-}
-
-
-*/
