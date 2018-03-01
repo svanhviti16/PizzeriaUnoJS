@@ -15,7 +15,8 @@ class Menu extends React.Component {
             <div className="pizza-container">{pizza.map(p => ( 
                 <div className="pizza">
                     <Pizza key={p.id} pizza={p} /> 
-                </div> ))}
+                </div> 
+            ))}
             </div>
         )
     }
