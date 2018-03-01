@@ -15,5 +15,6 @@
     "express": "^4.16.2",
     "isomorphic-fetch": "^2.2.1",
     "swagger-ui-express": "^2.0.15"
-  }
+  },
+  "html-webpack-plugin": "webpack-contrib/html-webpack-plugin"
 }
