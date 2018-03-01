@@ -11,7 +11,6 @@ const Pizza = ({pizza}) => {
             <div className="pizza-name">{name}</div>
             <div className="pizza-description">{description}</div>
             <div className="pizza-price">{price}</div>
-
         </div> 
     )
 }
