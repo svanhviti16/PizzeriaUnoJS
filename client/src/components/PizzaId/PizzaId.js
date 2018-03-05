@@ -5,14 +5,14 @@ import Pizza from '../Pizza/Pizza';
 import { getPizzaById } from '../../actions/pizzaActions';
 
 class PizzaId extends React.Component {
-   /* constructor(props) {
+    /* constructor(props) {
         super(props);
     }*/
     componentDidMount() {
         const { getPizzaById } = this.props;
-        const { linkId } = parseInt(this.props.match.params.Id);
-        console.log('linkId ' + linkId);
-        getPizzaById();
+        const { match: { params } } = this.props;
+        console.log('id ' + params.Id);
+        getPizzaById(params.Id);
     }
     
     render() {

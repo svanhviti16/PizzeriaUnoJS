@@ -27,7 +27,7 @@ export default class App extends Component {
                         return <Redirect to="/" />;
                     }} />
                     <Route exact path="/" component={Menu} />
-                    <Route path="/pizza/:Id" component={PizzaId} />                    
+                    <Route path="/pizzas/:Id" component={PizzaId} />                    
                     <Route path='/Offers'component={Offers} ></Route>
                     <Route path='/AboutUs'component={AboutUs} ></Route>
                     <Route path='/Cart'component={Cart} ></Route>
