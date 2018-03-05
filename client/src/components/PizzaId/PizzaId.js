@@ -3,6 +3,8 @@ import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux';
 import Pizza from '../Pizza/Pizza';
 import { getPizzaById } from '../../actions/pizzaActions';
+import { addToCart } from '../../actions/cartActions';
+
 
 class PizzaId extends React.Component {
     /* constructor(props) {
@@ -14,6 +16,11 @@ class PizzaId extends React.Component {
         console.log('id ' + params.Id);
         getPizzaById(params.Id);
     }
+
+    handleOnClickCart (pizza) {
+        const { addToCart } = this.props;
+        addToCart(pizza);
+    }
     
     render() {
         const { pizzaId } = this.props;
@@ -23,7 +30,12 @@ class PizzaId extends React.Component {
                     <Pizza key={pizzaId} pizza={pizzaId} /> 
                 }
                 </div>
+            <button className="btn btn-primary" onClick={() => {
+                this.handleOnClickCart(pizzaId);
+              }}
+            > Add to Cart</button>
             </div>
+
         );
     }
 }
@@ -35,4 +47,12 @@ const mapStateToProps = (state) => {
         pizzaId: state.pizzaId
     }
 }
-export default connect(mapStateToProps, { getPizzaById })(PizzaId);
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({
+        getPizzaById: getPizzaById,
+        addToCart: addToCart, 
+    }, dispatch)
+  
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(PizzaId);
