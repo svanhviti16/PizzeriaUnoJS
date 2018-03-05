@@ -1,7 +1,7 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
 import NavBarLinkWrapper from '../NavBarLinkWrapper/NavBarLinkWrapper.js'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 export default class Header extends React.Component {
 
@@ -11,9 +11,9 @@ export default class Header extends React.Component {
         return (
             <div className="header">
                 <div className="imgs">
-                    <img src={logo}/>
+                    <Link to={'/pizzas'}><img src={logo} /></Link>
                 </div>
-                <h2 > Pizzeria Uno</h2>
+                <h2 ><Link to={'/pizzas'}>Pizzeria Uno</Link></h2>
                 <NavBarLinkWrapper>
                     <NavLink
                         to="/"
