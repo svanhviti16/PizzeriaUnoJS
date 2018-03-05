@@ -9,7 +9,7 @@ const Pizza = ({pizza}) => {
             <div className="pizza-image">
                 <img src={image} alt=""/>
             </div>
-            <div className="pizza-name"><Link to={`/pizza/${id}`}>{name}</Link></div>
+            <div className="pizza-name"><Link to={`/pizzas/${id}`}>{name}</Link></div>
             <div className="pizza-description">{description}</div>
             <div className="pizza-price">{price}</div>
         </div> 
