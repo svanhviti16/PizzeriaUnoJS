@@ -11,19 +11,16 @@ class PizzaId extends React.Component {
     componentDidMount() {
         const { getPizzaById } = this.props;
         
-        //const { id, name, description, price, image } = pizza;
-        getPizzaById();
-        console.log('this.props: '+ this.props)
+        getPizzaById(2);
     }
     
     render() {
-        //let pizza = this.props.pizza.filter(pizza => pizza.id === parseInt(this.props.match.params.Id, 10));
-        const { pizza } = this.props;
-        console.log('pizza: ' + pizza);
+        const { pizzaId } = this.props;
+        console.log('pizzaId: ' + pizzaId);
         return (
             <div className="pizza-wrapper">
                 <div className="pizza-container">{
-                    <Pizza key={pizza} pizza={pizza} /> 
+                    <Pizza key={pizzaId} pizza={pizzaId} /> 
                 }
                 </div>
             </div>
@@ -50,7 +47,7 @@ class PizzaId extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    //console.log("mapSteteToProps" + state);
     return {
         pizzaId: state.pizzaId
     }

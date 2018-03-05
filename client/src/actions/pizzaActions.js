@@ -14,8 +14,8 @@ const getAllPizzasSuccess = (pizzas) => {
         payload: pizzas
     };
 };
-export const getPizzaById = () => {
-    return dispatch => fetch('http://localhost:3500/api/pizzas/1')
+export const getPizzaById = (id) => {
+    return dispatch => fetch('http://localhost:3500/api/pizzas/'+id)
         .then(json => json.json())
         .then(data => dispatch(getPizzaByIdSuccess(data)));
 };
