@@ -10,7 +10,9 @@ import Menu from './src/components/Menu/Menu.js';
 import Offers from './src/components/Offers/Offers.js';
 import AboutUs from './src/components/AboutUs/AboutUs.js';
 import Cart from './src/components/Cart/Cart.js';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import PizzaId from './src/components/PizzaId/PizzaId';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+
 
 
 export default class App extends Component {
@@ -21,10 +23,15 @@ export default class App extends Component {
             <div className="app"> 
                 <Header />
                 <Switch className='sub-pages'>
-                    <Route exact path='/'component={Menu} ></Route>
+                    <Route exact path='/pizzas' render={() => {
+                        return <Redirect to="/" />;
+                    }} />
+                    <Route exact path="/" component={Menu} />
+                    <Route path="/pizza/:Id" component={PizzaId} />                    
                     <Route path='/Offers'component={Offers} ></Route>
                     <Route path='/AboutUs'component={AboutUs} ></Route>
                     <Route path='/Cart'component={Cart} ></Route>
+
                 </Switch>
             </div>
         )
@@ -32,5 +39,5 @@ export default class App extends Component {
 }
 
 
-// createStore vill fá reducer fall í sig sem fyrsta parameter
+// createStore fær reducers sem fyrsta parameter og svo thunk sem middleware fyrir asynch köll
 ReactDOM.render(<Provider store={createStore(reducers, applyMiddleware(thunk))}><BrowserRouter><App /></BrowserRouter></Provider>, document.getElementById('app'));

@@ -4,6 +4,7 @@ import NavBarLinkWrapper from '../NavBarLinkWrapper/NavBarLinkWrapper.js'
 import { NavLink } from 'react-router-dom'
 
 export default class Header extends React.Component {
+
     render () {
         const logo = require('../../../resources/img/pizza_logo.png');
 
@@ -12,7 +13,7 @@ export default class Header extends React.Component {
                 <div className="imgs">
                     <img src={logo}/>
                 </div>
-                <h2>Pizzeria Uno</h2>
+                <h2 > Pizzeria Uno</h2>
                 <NavBarLinkWrapper>
                     <NavLink
                         to="/"

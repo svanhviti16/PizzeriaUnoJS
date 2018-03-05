@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 
 const Pizza = ({pizza}) => {
-    const { name, description, price, image } = pizza;
+    const { id, name, description, price, image } = pizza;
     return ( 
         <div className="pizza-wrapper">
             <div className="pizza-image">
@@ -17,6 +17,7 @@ const Pizza = ({pizza}) => {
 
 Pizza.propTypes = {
     pizza: PropTypes.shape({
+        id: PropTypes.number,
         name: PropTypes.string,
         description: PropTypes.string,
         price: PropTypes.number,
