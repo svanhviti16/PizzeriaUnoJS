@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Pizza = ({pizza}) => {
     const { id, name, description, price, image } = pizza;
@@ -8,10 +9,9 @@ const Pizza = ({pizza}) => {
             <div className="pizza-image">
                 <img src={image} alt=""/>
             </div>
-            <div className="pizza-name">{name}</div>
+            <div className="pizza-name"><Link to={`/pizza/${id}`}>{name}</Link></div>
             <div className="pizza-description">{description}</div>
             <div className="pizza-price">{price}</div>
-            <div>{id} </div>
         </div> 
     )
 }

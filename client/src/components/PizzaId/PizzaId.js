@@ -11,7 +11,7 @@ class PizzaId extends React.Component {
     componentDidMount() {
         const { getPizzaById } = this.props;
         
-        getPizzaById(2);
+        getPizzaById(5);
     }
     
     render() {
