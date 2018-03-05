@@ -10,13 +10,13 @@ class PizzaId extends React.Component {
     }*/
     componentDidMount() {
         const { getPizzaById } = this.props;
-        
-        getPizzaById(5);
+        const { linkId } = parseInt(this.props.match.params.Id);
+        console.log('linkId ' + linkId);
+        getPizzaById();
     }
     
     render() {
         const { pizzaId } = this.props;
-        console.log('pizzaId: ' + pizzaId);
         return (
             <div className="pizza-wrapper">
                 <div className="pizza-container">{
@@ -27,23 +27,6 @@ class PizzaId extends React.Component {
         );
     }
 }
-
-/* const PizzaId = ({pizza, ...props}) => {
-    // const { name, description, price, image } = pizza;
-    console.log(pizza);
-    return (null);
-    return ( 
-        <div className="pizza-id-wrapper">
-            <div className="pizza-id-image">
-                <img src={image} alt=""/>
-            </div>
-            <div className="pizza-id-name">{name}</div>
-            <div className="pizza-id-description">{description}</div>
-            <div className="pizza-id-price">{price}</div>
-        </div> 
-    )
-}
- */
 
 
 const mapStateToProps = (state) => {
