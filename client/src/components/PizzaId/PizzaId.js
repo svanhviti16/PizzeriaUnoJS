@@ -5,6 +5,8 @@ import Pizza from '../Pizza/Pizza';
 import { getPizzaById } from '../../actions/pizzaActions';
 import { addToCart } from '../../actions/cartActions';
 import { bindActionCreators } from 'redux';
+import toastr from 'toastr';
+
 
 
 
@@ -21,7 +23,9 @@ class PizzaId extends React.Component {
 
     handleOnClickCart (pizza) {
         const { addToCart } = this.props;
-        addToCart(pizza);
+        addToCart();
+        toastr.success('Pizza was added to Cart', 'Success!');
+
     }
     
     render() {
@@ -32,10 +36,10 @@ class PizzaId extends React.Component {
                     <Pizza key={pizzaId} pizza={pizzaId} /> 
                 }
                 </div>
-            <button className="btn btn-primary" onClick={() => {
-                this.handleOnClickCart(pizzaId);
-              }}
-            > Add to Cart</button>
+                <button className="btn btn-primary" onClick={() => {
+                    this.handleOnClickCart(pizzaId);
+                }}
+                > Add to Cart</button>
             </div>
 
         );
@@ -56,5 +60,5 @@ function mapDispatchToProps(dispatch) {
         addToCart: addToCart, 
     }, dispatch)
   
-  }
+}
 export default connect(mapStateToProps, mapDispatchToProps)(PizzaId);

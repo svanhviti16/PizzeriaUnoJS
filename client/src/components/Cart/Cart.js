@@ -1,8 +1,7 @@
 import React from 'react';
-//import  CartList  from '../CartList/CartList';
+import { NavLink, Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
-
+import { Grid, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 
 class Cart extends React.Component {
 
@@ -11,26 +10,27 @@ class Cart extends React.Component {
     }
 
     render() {
-        console.log('CART' + this.props);
         const {cartList} = this.props;
-      return (
-        <div className="cart">
-            <h2>Pay for your pizza please</h2>
-            <ListGroup>
-                {cartList.map(p =>  <ListGroupItem key={p.id}>{p.name} </ListGroupItem>  )}
-            </ListGroup>
-        </div>
-      )
+        return (
+            <Grid> 
+                <h2>Pay for your pizza please</h2>
+                <ListGroup>
+                    {cartList.map(p =>  <ListGroupItem key={p.id}>{p.name} </ListGroupItem>  )}
+                </ListGroup>
+                <Row className="show-grid">
+                    <NavLink to="/Orders" activeClassName="active" value="Checkout">Checkout</NavLink>
+                </Row>
+            </Grid>
+        )
     }
 };
 
 
-
 function mapStateToProps(state) {
     return {
-      cartList: state.cartList.cart
+        cartList: state.cartList.cart
     }
-  }
+}
   
 export default connect(mapStateToProps, null)(Cart);
 
