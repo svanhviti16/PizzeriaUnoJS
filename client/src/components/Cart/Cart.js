@@ -12,7 +12,7 @@ class Cart extends React.Component {
     render() {
         const {cartList} = this.props;
         return (
-            <Grid> 
+            <Grid className="pizza-container"> 
                 <h2>Pay for your pizza please</h2>
                 <ListGroup>
                     {cartList.map(p =>  <ListGroupItem key={p.id}>{p.name} </ListGroupItem>  )}

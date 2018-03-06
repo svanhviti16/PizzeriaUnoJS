@@ -13,9 +13,8 @@
 }
 
 .imgs img {
-  height: 100px;
-  flex-grow: 2;
-  padding: 30px;
+  height: 50px;
+  padding: 5px;
 }
 
 .nav-link-wrapper {
@@ -39,7 +38,7 @@
 
 .pizza-container{
   width: 768px;
-  margin: 0 auto;
+  margin-top:50px
 }
 
 .pizza-wrapper {
@@ -50,8 +49,11 @@
 }
 
 .pizza-wrapper .pizza-name {
-  margin-top: 10px;
   font-size: 24px;
   font-weight: bold;
 }
 
+
+.container-margin {
+  margin-top:50px;
+}

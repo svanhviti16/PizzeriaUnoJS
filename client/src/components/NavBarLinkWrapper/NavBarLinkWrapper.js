@@ -2,9 +2,9 @@ import React from 'react';
 
 const NavBarLinkWrapper = ({ children }) => {
     return (
-        <div className="nav-link-wrapper">
+        <ul className="nav navbar-nav">
             {children}
-        </div>
+        </ul>
     )
 };
 
