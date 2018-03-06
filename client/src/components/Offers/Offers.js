@@ -14,10 +14,7 @@ class Offers extends React.Component {
         console.log(offer);
         return (
             <div className="offer-container">
-                {offer.map(o => (
-                    <div className="offer">
-                        <OfferItem key={o.id} offer={o} />
-                    </div>))}
+                {offer.map(o => <OfferItem key={o.id} offer={o} />)}
             </div>
         )
     }
