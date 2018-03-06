@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Pizza from '../Pizza/Pizza';
 import { getPizzaById } from '../../actions/pizzaActions';
 import { addToCart } from '../../actions/cartActions';
+import { bindActionCreators } from 'redux';
+
 
 
 class PizzaId extends React.Component {

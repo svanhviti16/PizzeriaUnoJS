@@ -1,55 +1,42 @@
 import React from 'react';
-import { CartList }  from '../CartList/CartList';
+//import  CartList  from '../CartList/CartList';
 import { connect } from 'react-redux';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
+
 
 class Cart extends React.Component {
+
+    componentDidMount() {
+        //action get cart
+    }
+
     render() {
-        console.log(this.props);
+        console.log('CART' + this.props);
+        const {cartList} = this.props;
       return (
         <div className="cart">
             <h2>Pay for your pizza please</h2>
-            <CartList
-            cartList={this.props.cart}
-             /> 
+            <ListGroup>
+                {cartList.map(p =>  <ListGroupItem key={p.id}>{p.name} </ListGroupItem>  )}
+            </ListGroup>
         </div>
       )
     }
 };
 
+
+
 function mapStateToProps(state) {
     return {
-      cart: state.cart,
+      cartList: state.cartList.cart
     }
   }
   
-  export default connect(mapStateToProps, null)(Cart);
+export default connect(mapStateToProps, null)(Cart);
 
+/*
+ <CartList
+            cartList={this.props.cart}
+             />
+*/
 
-/*  import React from 'react';
-import { connect } from 'react-redux';
-import Pizza from '../Pizza/Pizza';
-import { getAllPizzas } from '../../actions/pizzaActions';
-
-class Menu extends React.Component {
-
-    componentDidMount() {
-        const { getAllPizzas } = this.props;
-        getAllPizzas();
-    }
-    render () {
-        const { pizza } = this.props;
-        return (
-            <div className="pizza-container">
-                {pizza.map(p =>  <Pizza key={p.id} pizza={p} />  )}
-            </div>
-        );
-    }
-};
-
-const mapStateToProps = (state) => {
-    
-    return {
-        pizza: state.pizza
-    }
-}
-export default connect(mapStateToProps, { getAllPizzas })(Menu);*/
