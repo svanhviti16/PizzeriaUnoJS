@@ -23,7 +23,7 @@ class PizzaId extends React.Component {
 
     handleOnClickCart (pizza) {
         const { addToCart } = this.props;
-        addToCart();
+        addToCart(pizza);
         toastr.success('Pizza was added to Cart', 'Success!');
 
     }
