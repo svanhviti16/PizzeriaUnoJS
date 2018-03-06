@@ -8,36 +8,43 @@ import { Nav } from 'react-bootstrap';
 
 export default class Header extends React.Component {
 
+
     render () {
         const logo = require('../../../resources/img/pizza_logo.png');
-
-        return (
-            <div className="header">
-                    <div className="imgs">
+        /** 
+                             <div className="imgs">
                         <Link to={'/pizzas'}><img src={logo} /></Link>
                     </div>
-                    <h2 ><Link to={'/pizzas'}>Pizzeria Uno</Link></h2>
-                    <NavBarLinkWrapper className="nav navbar-nav">
-                        <NavLink
+        */
+
+        return (
+            <nav className="navbar navbar-inverse navbar-fixed-top">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                         <div className="navbar-brand"><Link to={'/pizzas'}>Pizzeria Uno</Link></div>
+                    </div>
+                    <NavBarLinkWrapper >
+                        <li><NavLink
                             to="/"
                             activeClassName="active"
-                            className="nav-link"
-                            value="Menu">Menu</NavLink>
-                        <NavLink
+                            value="Menu">Menu</NavLink></li>
+                        <li><NavLink
                             to="/Offers"
                             activeClassName="active"
-                            className="nav-link">Offers</NavLink>
-                        <NavLink
+                            >Offers</NavLink></li>
+                        <li><NavLink
                             to="/AboutUs"
                             activeClassName="active"
-                            className="nav-link">About Us</NavLink>
-                        <NavLink
+                            >About Us</NavLink></li>
+                        <li><NavLink
                             to="/Cart"
                             activeClassName="active"
-                            className="nav-link">Cart</NavLink>
+                            >Cart</NavLink></li>
                     </NavBarLinkWrapper>
-               
-            </div>
+                </div>
+            </nav>
         );
     }
 }
+
+

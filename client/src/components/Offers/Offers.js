@@ -13,7 +13,7 @@ class Offers extends React.Component {
         const { offer } = this.props;
         console.log(offer);
         return (
-            <div className="offer-container">
+            <div className="container-margin">
                 {offer.map(o => <OfferItem key={o.id} offer={o} />)}
             </div>
         )
