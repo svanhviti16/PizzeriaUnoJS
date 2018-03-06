@@ -18,10 +18,10 @@ export default class Header extends React.Component {
         */
 
         return (
-            <Nav className="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
+            <nav className="navbar navbar-inverse navbar-fixed-top">
+                <div className="container-fluid">
                     <div className="navbar-header">
-                         <a className="navbar-brand"><Link to={'/pizzas'}>Pizzeria Uno</Link></a>
+                         <div className="navbar-brand"><Link to={'/pizzas'}>Pizzeria Uno</Link></div>
                     </div>
                     <NavBarLinkWrapper >
                         <li><NavLink
@@ -42,7 +42,7 @@ export default class Header extends React.Component {
                             >Cart</NavLink></li>
                     </NavBarLinkWrapper>
                 </div>
-            </Nav>
+            </nav>
         );
     }
 }
