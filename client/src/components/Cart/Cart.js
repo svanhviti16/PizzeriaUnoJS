@@ -34,9 +34,3 @@ function mapStateToProps(state) {
   
 export default connect(mapStateToProps, null)(Cart);
 
-/*
- <CartList
-            cartList={this.props.cart}
-             />
-*/
-
