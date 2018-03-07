@@ -11,11 +11,11 @@ import Offers from './src/components/Offers/Offers.js';
 import AboutUs from './src/components/AboutUs/AboutUs.js';
 import Cart from './src/components/Cart/Cart.js';
 import PizzaId from './src/components/PizzaId/PizzaId';
-import OrderForm from './src/components/OrderForm/OrderForm';
+import WizardForm from './src/components//WizardForm/WizardForm';
+
+
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-
-
 
 export default class App extends Component {
 
@@ -33,13 +33,14 @@ export default class App extends Component {
                     <Route path='/Offers'component={Offers} ></Route>
                     <Route path='/AboutUs'component={AboutUs} ></Route>
                     <Route path='/Cart'component={Cart} ></Route>
-                    <Route path='/Orders' component={OrderForm} ></Route>
+                    <Route path='/Orders' component={WizardForm} ></Route>
 
                 </Switch>
             </div>
         )
     }
 }
+
 
 
 // createStore fær reducers sem fyrsta parameter og svo thunk sem middleware fyrir asynch köll

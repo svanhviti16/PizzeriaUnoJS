@@ -5,10 +5,6 @@ import { Grid, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 
 class Cart extends React.Component {
 
-    componentDidMount() {
-        //action get cart
-    }
-
     render() {
         const {cartList} = this.props;
         return (
