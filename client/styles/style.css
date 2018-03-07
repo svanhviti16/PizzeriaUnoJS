@@ -38,7 +38,7 @@
 }
 
 .pizza-container{
-  width: 768px;
+  width: 468px;
   margin-top:50px
 }
 
@@ -57,4 +57,28 @@
 
 .container-margin {
   margin-top:50px;
+}
+
+
+.offer-wrapper {
+  box-shadow: 5px 5px 20px rgba(155, 155, 155, .5);
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  width: 400px;
+}
+
+.offer-wrapper .offer-img {
+  width: 200px;
+}
+.offer-wrapper .offer-id {
+  font-size: 24px;
+  font-weight: bold;
+}
+.offer-wrapper .offer-valid-for {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.offer-wrapper #offer-button {
+  margin: 20px;
 }

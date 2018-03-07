@@ -17,11 +17,17 @@ const Pizza = ({pizza}) => {
 }
 
 Pizza.propTypes = {
+    // the values that each pizza holds
     pizza: PropTypes.shape({
+        // pizza id, used as key
         id: PropTypes.number,
+        // pizza name
         name: PropTypes.string,
+        // pizza ingredients
         description: PropTypes.string,
+        // price of the pizza
         price: PropTypes.number,
+        // the photo of the pizza
         image: PropTypes.string
     })
 };

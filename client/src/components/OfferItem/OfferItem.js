@@ -6,10 +6,12 @@ const OfferItem = ({offer}) => {
 
     return ( 
         <div className="offer-wrapper">
-            <img src={pic} />
+            <img className="offer-img" src={pic} />
+            <div className="offer-id">Offer {offer.id}</div>
             <div className="offer-offer">{offer.offer}</div>
-            {offer.price ? <div className="offer-price">{offer.price}</div> : null}
-            <div className="offer-valid-for">{offer.validFor}</div>
+            {offer.price ? <div className="offer-price">Price: {offer.price}</div> : null}
+            <div className="offer-valid-for">This offer is valid for {offer.validFor}</div>
+            <button id="offer-button" className="btn btn-primary">Use offer</button>
         </div> 
     )
 }
