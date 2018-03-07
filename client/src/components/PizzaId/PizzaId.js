@@ -35,11 +35,12 @@ class PizzaId extends React.Component {
                 <div className="pizza-container">{
                     <Pizza key={pizzaId} pizza={pizzaId} /> 
                 }
-                </div>
                 <button className="btn btn-primary" onClick={() => {
                     this.handleOnClickCart(pizzaId);
                 }}
                 > Add to Cart</button>
+                </div>
+                
             </div>
 
         );

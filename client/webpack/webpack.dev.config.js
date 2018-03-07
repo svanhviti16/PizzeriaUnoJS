@@ -26,7 +26,8 @@ module.exports = {
     },
     output: {
         path: parentDir + '/dist',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        devtoolModuleFilenameTemplate: '[absolute-resource-path]'
     },
     devServer: {
         port: 9000,
@@ -35,7 +36,12 @@ module.exports = {
         contentBase: parentDir,
         historyApiFallback: true
     },
+    devtool: 'source-map',
     plugins: [
-        new HtmlWebpackPlugin( { title: 'Redux template', template: './index.html', inject: 'body' })
+        new HtmlWebpackPlugin( { title: 'Redux template', template: './index.html', inject: 'body' }),    
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMapFilename: 'sourcemap.js.map',
+            sourceMap: true,
+        })
     ]
 }

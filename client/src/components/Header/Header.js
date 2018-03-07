@@ -13,15 +13,15 @@ export default class Header extends React.Component {
         const logo = require('../../../resources/img/pizza_logo.png');
         /** 
                              <div className="imgs">
-                        <Link to={'/pizzas'}><img src={logo} /></Link>
+                        
                     </div>
         */
 
         return (
-            <nav className="navbar navbar-inverse navbar-fixed-top">
+            <nav className="navbar navbar-inverse fixed-top">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                         <div className="navbar-brand"><Link to={'/pizzas'}>Pizzeria Uno</Link></div>
+                        <div className="navbar-brand"><Link to={'/pizzas'}><img id="logo" src={logo} />Pizzeria Uno</Link></div>
                     </div>
                     <NavBarLinkWrapper >
                         <li><NavLink
@@ -30,16 +30,13 @@ export default class Header extends React.Component {
                             value="Menu">Menu</NavLink></li>
                         <li><NavLink
                             to="/Offers"
-                            activeClassName="active"
-                            >Offers</NavLink></li>
+                            activeClassName="active">Offers</NavLink></li>
                         <li><NavLink
                             to="/AboutUs"
-                            activeClassName="active"
-                            >About Us</NavLink></li>
+                            activeClassName="active">About Us</NavLink></li>
                         <li><NavLink
                             to="/Cart"
-                            activeClassName="active"
-                            >Cart</NavLink></li>
+                            activeClassName="active">Cart</NavLink></li>
                     </NavBarLinkWrapper>
                 </div>
             </nav>
