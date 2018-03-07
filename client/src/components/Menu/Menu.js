@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Pizza from '../Pizza/Pizza';
 import { getAllPizzas } from '../../actions/pizzaActions';
 
-class Menu extends React.Component {
+export class Menu extends React.Component {
 
     componentDidMount() {
         const { getAllPizzas } = this.props;
