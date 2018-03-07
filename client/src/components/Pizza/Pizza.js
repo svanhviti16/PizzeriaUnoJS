@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 const Pizza = ({pizza}) => {
     const { id, name, description, price, image } = pizza;
     return ( 
-        <div className="pizza-wrapper">
+        <Link to={`/pizzas/${id}`}><div className="pizza-wrapper" >
             <div className="pizza-image">
                 <img src={image} alt=""/>
             </div>
-            <div className="pizza-name"><Link to={`/pizzas/${id}`}>{name}</Link></div>
+            <div className="pizza-name">{name}</div>
             <div className="pizza-description">{description}</div>
             <div className="pizza-price">{price}</div>
-        </div> 
+        </div> </Link>
     )
 }
 
