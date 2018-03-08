@@ -14,7 +14,9 @@ describe('Menu tests', () => {
         component = shallow(<Menu getAllPizzas={getAllPizzas} pizza={pizzaList} />);
     });
 
-    it('should render 2 pizzas');
+    it('should render 2 pizzas', () => {
+        expect(component.props().children.length).toBe(2);
+    });
 
     it('should call getAllPizzas once', () => {
         expect(getAllPizzas.mock.calls.length).toBe(1);
