@@ -102,19 +102,19 @@ class WizardForm extends Component {
                 {this.state.page === 1 && 
                     <Grid className="container-margin">
                         <div>
-                            <label>Pickup or Delivery</label>
+                            <label>Pickup or Delivery?</label>
                             <TextInput
                                 onChange={ e => this.handleClick(e) }
                                 name="pick"
                                 value= "false"
-                                label="Pickup pizza"
+                                label="Pickup"
                                 type="radio"
                                 validate={val => !val ? 'Name is required' : ''} />
                             <TextInput
                                 onChange={ e => this.handleClick(e) }
                                 name="pick"
                                 value= "true"
-                                label="Delivery Pizza"
+                                label="Delivery"
                                 type="radio"
                                 validate={val => !val ? 'Name is required' : ''} />
                         </div>
