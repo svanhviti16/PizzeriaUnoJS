@@ -44,9 +44,23 @@ class WizardForm extends Component {
 
     }
 
-    onFormSubmit(e) {
+    onFormSubmitDelivery(e) {
         const { name, address, city, telephone, postCode } = this.state.fields;
         if (name === '' || address === '' || city === '' || telephone === '' || postCode === '') { return false; }
+        // setur í localstorage
+        localStorage.setItem('userData', JSON.stringify(this.state.fields));
+
+        // sækir úr localstorage, færa annað
+        var userData = JSON.parse(localStorage.getItem('userData'));
+        // hreinsa state-ið
+
+        console.log(userData);
+        this.nextPage();
+    };
+
+    onFormSubmitPickup(e) {
+        const { name, address, city, telephone, postCode } = this.state.fields;
+        if (name === '' || telephone === '') { return false; }
         // setur í localstorage
         localStorage.setItem('userData', JSON.stringify(this.state.fields));
 
@@ -73,6 +87,7 @@ class WizardForm extends Component {
         if (order) {
             postOrder(JSON.parse(order), telephone);
         }
+        this.nextPage();
     }
 
 
@@ -80,7 +95,8 @@ class WizardForm extends Component {
     render() {
         const { name, address, city, telephone, postCode } = this.state.fields;
         const order = JSON.parse(localStorage.getItem('pizzaOrder'));
-        console.log('order í render' + typeof(order));
+        const priceSummer = (accumulator, currentValue) => accumulator + currentValue.price;
+    
         return (
             <div>
                 {this.state.page === 1 && 
@@ -109,7 +125,7 @@ class WizardForm extends Component {
                 }
                 {this.state.page === 2 && this.state.isDelivery == 'true' &&
                     <Grid className="pizza-container"> 
-                        <h1>Form</h1>
+                        <h1>Please enter your details</h1>
                         <div>
                             <TextInput 
                                 onChange={e => this.onInput(e)}
@@ -146,12 +162,12 @@ class WizardForm extends Component {
                             <button type="button" className="previous" onClick={this.previousPage}>
                                 Previous
                             </button>
-                            <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
+                            <button type="button" className="next" onClick={ (e) => this.onFormSubmitDelivery(e)} >Next</button>
                         </div>
                     </Grid>}
                 {this.state.page === 2 && this.state.isDelivery == 'false' &&
                     <Grid className="pizza-container"> 
-                        <h1>Form</h1>
+                        <h1>Please enter your details</h1>
                         <div>
                             <TextInput 
                                 onChange={e => this.onInput(e)}
@@ -170,7 +186,7 @@ class WizardForm extends Component {
                             <button type="button" className="previous" onClick={this.previousPage}>
                                 Previous
                             </button>
-                            <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
+                            <button type="button" className="next" onClick={ (e) => this.onFormSubmitPickup(e)} >Next</button>
                         </div>
                     </Grid> 
                 }
@@ -180,14 +196,16 @@ class WizardForm extends Component {
                     <ListGroup>
                         {order.map((p, i) =>  <ListGroupItem key={i}>{p.name} {p.price}</ListGroupItem>  )}
                     </ListGroup>
-                    <p>Total price: </p>
+                    <p>Total price: {order.reduce(priceSummer, 0)}</p>
                     <button type="button" className="previous" onClick={this.previousPage}>Previous</button>
                     <button type="button" className="next" onClick={this.postPizza}>Confirm</button>
                 </Grid>
                 }
                 {this.state.page === 4 &&
                 <Grid>
-                    <p> Pöntun þin er komin í ofn!  </p>
+                    <h2> Thank you for your order </h2>
+                    <p> Your pizza is going in the oven!  </p>
+
                 </Grid>
                 }
             </div>
