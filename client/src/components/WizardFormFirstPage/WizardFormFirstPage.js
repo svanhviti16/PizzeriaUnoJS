@@ -1,15 +1,27 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Grid } from 'react-bootstrap';
+import renderField from '../renderField';
 
 const WizardFormFirstPage = props => {
-    const { handleSubmit } = props;
+    const { handleSubmit, handleDelivery, handlePickup } = props;
     return (
         <Grid className="container-margin">
             <form onSubmit={handleSubmit}>
                 <div>
-                    <button type="submit" className="next">Sækja</button>
-                    <button type="submit" className="next">Senda</button>
+                    <label>Pickup or Delivery</label>
+                    <div>
+                        <label>
+                            <Field onClick={ handlePickup } name="checkout1" component="input" type="radio" value="pickup" />
+                            {' '} Pickup pizza</label>
+                        <label>
+                            <Field onClick={ handleDelivery } name="checkout1" component="input" type="radio" value="delivery" />
+                            {' '}Have pizza delivered
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" className="next">Next</button>
                 </div>
             </form>
         </Grid>
@@ -21,3 +33,9 @@ export default reduxForm({
     destroyOnUnmount: false, //        <------ preserve form data
     forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
 })(WizardFormFirstPage);
+
+
+/**
+ *                         <Field name="checkout1" component={renderError} />
+
+ */
