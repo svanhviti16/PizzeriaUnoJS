@@ -10,6 +10,7 @@ class WizardForm extends Component {
         this.nextPage = this.nextPage.bind(this);
         this.previousPage = this.previousPage.bind(this);
         this.handleClickDelivery = this.handleClickDelivery.bind(this);
+        this.handleClickPickup = this.handleClickPickup.bind(this);
         this.state = {
             page: 1,
             isDelivery: false
@@ -25,7 +26,12 @@ class WizardForm extends Component {
 
     handleClickDelivery () {
         this.setState({isDelivery: true})
-        console.log('isDelivery' + this.state.isDelivery);
+        console.log('isDelivery ' + this.state.isDelivery);
+    }
+
+    handleClickPickup () {
+        this.setState({isDelivery: false })
+        console.log('isDelivery inn í pickup þar sem isDelivery a að verða false ' + this.state.isDelivery);
     }
 
 
@@ -35,7 +41,7 @@ class WizardForm extends Component {
         const { page } = this.state;
         return (
             <div>
-                {page === 1 && <WizardFormFirstPage onSubmit={ this.nextPage }  />}
+                {page === 1 && <WizardFormFirstPage onSubmit={ this.nextPage }  handleDelivery={ this.handleClickDelivery } handlePickup={  this.handleClickPickup }/>}
                 {page === 2 &&
           <WizardFormSecondPage
               previousPage={this.previousPage}
