@@ -15,7 +15,7 @@ class WizardForm extends Component {
         this.postPizza = this.postPizza.bind(this);
         this.state = {
             page: 1,
-            isDelivery: false,
+            isDelivery: '',
             fields: {
                 name: '',
                 address: '',
@@ -26,6 +26,9 @@ class WizardForm extends Component {
         }
     }
     nextPage () {
+        if (this.state.isDelivery === '') {
+            return false; 
+        }
         this.setState({ page: this.state.page + 1 });
     }
 
@@ -33,16 +36,12 @@ class WizardForm extends Component {
         this.setState({ page: this.state.page - 1 });
     }
 
-    handleClickDelivery () {
-        this.setState({isDelivery: true}, () => {
-            console.log('isDelivery á að vera true: ' + this.state.isDelivery)
-        });
-    }
+    handleClick (e) {
+        let isDel = e.target.value;
+        console.log('let ' + isDel);
 
-    handleClickPickup () {
-        this.setState({isDelivery: false}, () => {
-            console.log('Pickup, isDelivery a að verða false: ' + this.state.isDelivery);
-        });
+        this.setState({isDelivery: isDel});
+
     }
 
     onFormSubmit(e) {
@@ -79,71 +78,101 @@ class WizardForm extends Component {
 
 
     render() {
-        const { page } = this.state;
         const { name, address, city, telephone, postCode } = this.state.fields;
         const order = JSON.parse(localStorage.getItem('pizzaOrder'));
         console.log('order í render' + typeof(order));
         return (
             <div>
-                {page === 1 && 
+                {this.state.page === 1 && 
                     <Grid className="container-margin">
                         <div>
-                            <label>Pickup or Delivery?</label>
-                            <TextInput
-                                onChange={ e => this.handleClickPickup(e) }
-                                type="radio"
-                                name="Pickup"
-                                value= "false"
-                                validate={val => !val ? 'Name is required' : ''} />
-                            <TextInput
-                                onChange={ e => this.handleClickDelivery(e) }
-                                type="radio"
-                                name="Delivery"
-                                value= "true"
-                                validate={val => !val ? 'Name is required' : ''} />
+                            <label>Pickup or Delivery</label>
+                                <TextInput
+                                    onChange={ e => this.handleClick(e) }
+                                    name="pick"
+                                    value= "false"
+                                    label="Pickup pizza"
+                                    type="radio"
+                                    validate={val => !val ? 'Name is required' : ''} />
+                                <TextInput
+                                  onChange={ e => this.handleClick(e) }
+                                  name="pick"
+                                  value= "true"
+                                  label="Delivery Pizza"
+                                  type="radio"
+                                  validate={val => !val ? 'Name is required' : ''} />
                         </div>
                         <div>
                             <button type="button" className="next" onClick={this.nextPage}>Next</button>
                         </div>
                     </Grid>
                 }
-                {page === 2 &&
+                {this.state.page === 2 && this.state.isDelivery == 'true' &&
                     <Grid className="pizza-container"> 
                         <h1>Form</h1>
-                        <div>
-                            <TextInput 
-                                onChange={e => this.onInput(e)}
-                                name="name"
-                                value={name}
-                                validate={val => !val ? 'Name is required' : ''} />
-                            <TextInput 
-                                onChange={e => this.onInput(e)}
-                                name="address"
-                                value={address}
-                                validate={val => !val ? 'Address is required' : ''} />
-                            <TextInput 
-                                onChange={e => this.onInput(e)}
-                                name="city"
-                                value={city}
-                                validate={val => !val ? 'City is required' : ''} />
-                            <TextInput 
-                                onChange={e => this.onInput(e)}
-                                name="telephone"
-                                value={telephone}
-                                validate={val => !validator.isMobilePhone(val, 'any') ? 'Telephone is required' : ''} />
-                            <TextInput 
-                                onChange={e => this.onInput(e)}
-                                name="postCode"
-                                value={postCode}
-                                validate={val => !validator.isPostalCode(val, 'IS')? 'PostCode is required' : ''} />
-                        </div>
-                        <div>
-                            <button type="button" className="previous" onClick={this.previousPage}>
+                            <div>
+                                <TextInput 
+                                    onChange={e => this.onInput(e)}
+                                    name="name"
+                                    value={name}
+                                    label="Name"
+                                    validate={val => !val ? 'Name is required' : ''} />
+                                <TextInput 
+                                    onChange={e => this.onInput(e)}
+                                    name="address"
+                                    value={address}
+                                    label="Address"
+                                    validate={val => !val ? 'Address is required' : ''} />
+                                <TextInput 
+                                    onChange={e => this.onInput(e)}
+                                    name="city"
+                                    value={city}
+                                    label="City"
+                                    validate={val => !val ? 'City is required' : ''} />
+                                <TextInput 
+                                    onChange={e => this.onInput(e)}
+                                    name="telephone"
+                                    value={telephone}
+                                    label="Telephone"
+                                    validate={val => !validator.isMobilePhone(val, 'any') ? 'Telephone is required' : ''} />
+                                <TextInput 
+                                    onChange={e => this.onInput(e)}
+                                    name="postCode"
+                                    value={postCode}
+                                    label="Post Code"
+                                    validate={val => !validator.isPostalCode(val, 'IS')? 'PostCode is required' : ''} />
+                            </div>
+                            <div>
+                                <button type="button" className="previous" onClick={this.previousPage}>
                                     Previous
-                            </button>
-                            <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
-                        </div>
-                    </Grid>}
+                                </button>
+                                <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
+                            </div>
+                </Grid>}
+                {this.state.page === 2 && this.state.isDelivery == 'false' &&
+                    <Grid className="pizza-container"> 
+                        <h1>Form</h1>
+                            <div>
+                                <TextInput 
+                                    onChange={e => this.onInput(e)}
+                                    name="name"
+                                    value={name}
+                                    label="Name"
+                                    validate={val => !val ? 'Name is required' : ''} />
+                                <TextInput 
+                                    onChange={e => this.onInput(e)}
+                                    name="telephone"
+                                    value={telephone}
+                                    label="Telephone"
+                                    validate={val => !validator.isMobilePhone(val, 'any') ? 'Telephone is required' : ''} />
+                            </div>
+                            <div>
+                                <button type="button" className="previous" onClick={this.previousPage}>
+                                    Previous
+                                </button>
+                                <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
+                            </div>
+                </Grid> 
                 {page === 3 &&
                 <Grid>
                     <p> Here is your order, please confirm. </p>
