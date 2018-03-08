@@ -27,12 +27,12 @@ class Cart extends React.Component {
 
 
 function mapStateToProps(state) {
-    localStorage.setItem('pizzaOrder', JSON.stringify(state.cartList));
+    localStorage.setItem('pizzaOrder', JSON.stringify(state.cartList.cart));
 
     return {
         cartList: state.cartList.cart
     }
 }
-  
+
 export default connect(mapStateToProps, null)(Cart);
 

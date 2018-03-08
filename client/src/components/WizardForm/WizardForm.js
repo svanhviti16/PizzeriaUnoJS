@@ -3,14 +3,16 @@ import { PropTypes } from 'prop-types';
 import TextInput from '../TextInput/TextInput';
 import validator from 'validator';
 import { connect } from 'react-redux';
-import { Grid } from 'react-bootstrap';
-
+import { Grid, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { postOrder } from '../../actions/orderActions';
+import Cart from '../Cart/Cart';
 
 class WizardForm extends Component {
     constructor(props) {
         super(props);
         this.nextPage = this.nextPage.bind(this);
         this.previousPage = this.previousPage.bind(this);
+        this.postPizza = this.postPizza.bind(this);
         this.state = {
             page: 1,
             isDelivery: false,
@@ -64,7 +66,14 @@ class WizardForm extends Component {
     };
 
     postPizza() {
-        
+        const { postOrder } = this.props;
+        const { fields } = this.state;
+        const { name, address, city, telephone, postCode } = this.state.fields;
+        const order = localStorage.getItem('pizzaOrder');
+        console.log(order);
+        if (order) {
+            postOrder(JSON.parse(order), telephone);
+        }
     }
 
 
@@ -72,6 +81,8 @@ class WizardForm extends Component {
     render() {
         const { page } = this.state;
         const { name, address, city, telephone, postCode } = this.state.fields;
+        const order = JSON.parse(localStorage.getItem('pizzaOrder'));
+        console.log('order í render' + typeof(order));
         return (
             <div>
                 {page === 1 && 
@@ -135,9 +146,13 @@ class WizardForm extends Component {
                     </Grid>}
                 {page === 3 &&
                 <Grid>
-                    <p> her serðu körfuna þina </p>
+                    <p> Here is your order, please confirm. </p>
+                    <ListGroup>
+                        {order.map((p, i) =>  <ListGroupItem key={i}>{p.name} {p.price}</ListGroupItem>  )}
+                    </ListGroup>
+                    <p>Total price: </p>
                     <button type="button" className="previous" onClick={this.previousPage}>Previous</button>
-                    <button type="button" className="next" onClick={this.nextPage}>Confirme</button>
+                    <button type="button" className="next" onClick={this.postPizza}>Confirm</button>
                 </Grid>
                 }
                 {page === 4 &&
@@ -154,5 +169,11 @@ class WizardForm extends Component {
     isDelivery: PropTypes.bool.isRequired
 };*/
 
+const mapStateToProps = (state) => {
+    return {
+        order: state.cartList.cart
+    }
+}
 
-export default WizardForm;
+
+export default connect(mapStateToProps, { postOrder })(WizardForm);

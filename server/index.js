@@ -47,8 +47,10 @@ router.get('/orders/:telephone', (req, res) => {
 });
 
 router.post('/orders/:telephone', (req, res) => {
+    console.log(req.body);
     const { telephone } = req.params;
     const order = new Order(req.body);
+    console.log(order);
     orders.hasOwnProperty(telephone) ? orders[telephone].push(order) : orders[telephone] = [order];
     return res.send(`Order for ${telephone} was successfully issued!`);
 });

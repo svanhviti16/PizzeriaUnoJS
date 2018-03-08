@@ -1,6 +1,6 @@
 
 function Order(order) {
-    this.order = JSON.parse(order);
+    this.order = order;
 };
 
 module.exports = Order;

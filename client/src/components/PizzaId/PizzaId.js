@@ -59,7 +59,6 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         getPizzaById: getPizzaById,
         addToCart: addToCart, 
-    }, dispatch)
-  
+    }, dispatch) 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PizzaId);
