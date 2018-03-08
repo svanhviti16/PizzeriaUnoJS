@@ -43,7 +43,7 @@ class WizardForm extends Component {
         const { page } = this.state;
         return (
             <div>
-                {page === 1 && <WizardFormFirstPage onSubmit={ this.nextPage } isDelivery={this.isDelivery} handleDelivery={ this.handleClickDelivery } handlePickup={  this.handleClickPickup }/>}
+                {page === 1 && <WizardFormFirstPage onSubmit={ this.nextPage } handleDelivery={ this.handleClickDelivery } handlePickup={  this.handleClickPickup }/>}
                 {page === 2 &&
           <WizardFormSecondPage
               previousPage={this.previousPage}
