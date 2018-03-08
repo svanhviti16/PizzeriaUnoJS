@@ -6,7 +6,7 @@ const TextInput = ({onChange, name, value, type, validate }) => {
     return (
         <div className="form-group">
             <label>{name}:</label>
-            <input className="form-control"type={type} name={name} value={value} onChange={onChange} />
+            <input className="form-control" type={type} name={name} value={value} onChange={onChange} />
             <p className="error-text">{validate(value)}</p>
         </div>
     )
