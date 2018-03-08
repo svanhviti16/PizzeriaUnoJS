@@ -87,20 +87,20 @@ class WizardForm extends Component {
                     <Grid className="container-margin">
                         <div>
                             <label>Pickup or Delivery</label>
-                                <TextInput
-                                    onChange={ e => this.handleClick(e) }
-                                    name="pick"
-                                    value= "false"
-                                    label="Pickup pizza"
-                                    type="radio"
-                                    validate={val => !val ? 'Name is required' : ''} />
-                                <TextInput
-                                  onChange={ e => this.handleClick(e) }
-                                  name="pick"
-                                  value= "true"
-                                  label="Delivery Pizza"
-                                  type="radio"
-                                  validate={val => !val ? 'Name is required' : ''} />
+                            <TextInput
+                                onChange={ e => this.handleClick(e) }
+                                name="pick"
+                                value= "false"
+                                label="Pickup pizza"
+                                type="radio"
+                                validate={val => !val ? 'Name is required' : ''} />
+                            <TextInput
+                                onChange={ e => this.handleClick(e) }
+                                name="pick"
+                                value= "true"
+                                label="Delivery Pizza"
+                                type="radio"
+                                validate={val => !val ? 'Name is required' : ''} />
                         </div>
                         <div>
                             <button type="button" className="next" onClick={this.nextPage}>Next</button>
@@ -110,70 +110,71 @@ class WizardForm extends Component {
                 {this.state.page === 2 && this.state.isDelivery == 'true' &&
                     <Grid className="pizza-container"> 
                         <h1>Form</h1>
-                            <div>
-                                <TextInput 
-                                    onChange={e => this.onInput(e)}
-                                    name="name"
-                                    value={name}
-                                    label="Name"
-                                    validate={val => !val ? 'Name is required' : ''} />
-                                <TextInput 
-                                    onChange={e => this.onInput(e)}
-                                    name="address"
-                                    value={address}
-                                    label="Address"
-                                    validate={val => !val ? 'Address is required' : ''} />
-                                <TextInput 
-                                    onChange={e => this.onInput(e)}
-                                    name="city"
-                                    value={city}
-                                    label="City"
-                                    validate={val => !val ? 'City is required' : ''} />
-                                <TextInput 
-                                    onChange={e => this.onInput(e)}
-                                    name="telephone"
-                                    value={telephone}
-                                    label="Telephone"
-                                    validate={val => !validator.isMobilePhone(val, 'any') ? 'Telephone is required' : ''} />
-                                <TextInput 
-                                    onChange={e => this.onInput(e)}
-                                    name="postCode"
-                                    value={postCode}
-                                    label="Post Code"
-                                    validate={val => !validator.isPostalCode(val, 'IS')? 'PostCode is required' : ''} />
-                            </div>
-                            <div>
-                                <button type="button" className="previous" onClick={this.previousPage}>
-                                    Previous
-                                </button>
-                                <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
-                            </div>
-                </Grid>}
+                        <div>
+                            <TextInput 
+                                onChange={e => this.onInput(e)}
+                                name="name"
+                                value={name}
+                                label="Name"
+                                validate={val => !val ? 'Name is required' : ''} />
+                            <TextInput 
+                                onChange={e => this.onInput(e)}
+                                name="address"
+                                value={address}
+                                label="Address"
+                                validate={val => !val ? 'Address is required' : ''} />
+                            <TextInput 
+                                onChange={e => this.onInput(e)}
+                                name="city"
+                                value={city}
+                                label="City"
+                                validate={val => !val ? 'City is required' : ''} />
+                            <TextInput 
+                                onChange={e => this.onInput(e)}
+                                name="telephone"
+                                value={telephone}
+                                label="Telephone"
+                                validate={val => !validator.isMobilePhone(val, 'any') ? 'Telephone is required' : ''} />
+                            <TextInput 
+                                onChange={e => this.onInput(e)}
+                                name="postCode"
+                                value={postCode}
+                                label="Post Code"
+                                validate={val => !validator.isPostalCode(val, 'IS')? 'PostCode is required' : ''} />
+                        </div>
+                        <div>
+                            <button type="button" className="previous" onClick={this.previousPage}>
+                                Previous
+                            </button>
+                            <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
+                        </div>
+                    </Grid>}
                 {this.state.page === 2 && this.state.isDelivery == 'false' &&
                     <Grid className="pizza-container"> 
                         <h1>Form</h1>
-                            <div>
-                                <TextInput 
-                                    onChange={e => this.onInput(e)}
-                                    name="name"
-                                    value={name}
-                                    label="Name"
-                                    validate={val => !val ? 'Name is required' : ''} />
-                                <TextInput 
-                                    onChange={e => this.onInput(e)}
-                                    name="telephone"
-                                    value={telephone}
-                                    label="Telephone"
-                                    validate={val => !validator.isMobilePhone(val, 'any') ? 'Telephone is required' : ''} />
-                            </div>
-                            <div>
-                                <button type="button" className="previous" onClick={this.previousPage}>
-                                    Previous
-                                </button>
-                                <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
-                            </div>
-                </Grid> 
-                {page === 3 &&
+                        <div>
+                            <TextInput 
+                                onChange={e => this.onInput(e)}
+                                name="name"
+                                value={name}
+                                label="Name"
+                                validate={val => !val ? 'Name is required' : ''} />
+                            <TextInput 
+                                onChange={e => this.onInput(e)}
+                                name="telephone"
+                                value={telephone}
+                                label="Telephone"
+                                validate={val => !validator.isMobilePhone(val, 'any') ? 'Telephone is required' : ''} />
+                        </div>
+                        <div>
+                            <button type="button" className="previous" onClick={this.previousPage}>
+                                Previous
+                            </button>
+                            <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
+                        </div>
+                    </Grid> 
+                }
+                {this.state.page === 3 &&
                 <Grid>
                     <p> Here is your order, please confirm. </p>
                     <ListGroup>
@@ -184,7 +185,7 @@ class WizardForm extends Component {
                     <button type="button" className="next" onClick={this.postPizza}>Confirm</button>
                 </Grid>
                 }
-                {page === 4 &&
+                {this.state.page === 4 &&
                 <Grid>
                     <p> Pöntun þin er komin í ofn!  </p>
                 </Grid>
