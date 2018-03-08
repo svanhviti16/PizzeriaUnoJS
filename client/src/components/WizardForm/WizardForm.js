@@ -40,12 +40,6 @@ class WizardForm extends Component {
 
         this.setState({isDelivery: isDel});
 
-
-    /**
-     * , () => {
-        console.log('Pickup, isDelivery a að verða false: ' + this.state.isDelivery);
-    })
-        */
     }
 
     onFormSubmit(e) {
@@ -167,20 +161,20 @@ class WizardForm extends Component {
                                 </button>
                                 <button type="button" className="next" onClick={ (e) => this.onFormSubmit(e)} >Next</button>
                             </div>
-                </Grid>}
-            {this.state.page === 3 && 
+                </Grid> 
+                {page === 3 &&
                 <Grid>
-                <p> her serðu körfuna þina </p>
-                <button type="button" className="previous" onClick={this.previousPage}>Previous</button>
-                <button type="button" className="next" onClick={this.nextPage}>Confirme</button>
+                    <p> her serðu körfuna þina </p>
+                    <button type="button" className="previous" onClick={this.previousPage}>Previous</button>
+                    <button type="button" className="next" onClick={this.nextPage}>Confirme</button>
                 </Grid>
-            }
-            {this.state.page === 4 &&
+                }
+                {page === 4 &&
                 <Grid>
-                <p> Pöntun þin er komin í ofn!  </p>
+                    <p> Pöntun þin er komin í ofn!  </p>
                 </Grid>
-            }
-        </div>
+                }
+            </div>
         );
     }
 }

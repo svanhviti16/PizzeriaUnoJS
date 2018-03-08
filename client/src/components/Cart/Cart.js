@@ -5,17 +5,21 @@ import { Grid, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 
 class Cart extends React.Component {
 
+    componentDidMount() {
+        var pizzaOrder = JSON.parse(localStorage.getItem('pizzaOrder'));
+    }
+
     render() {
         const {cartList} = this.props;
         return (
             <Grid className="pizza-container"> 
-                <h2>Pay for your pizza please</h2>
+                <h2>Checkout</h2>
                 <ListGroup>
-                    {cartList.map(p =>  <ListGroupItem key={p.id}>{p.name} </ListGroupItem>  )}
+                    {cartList.map((p, i) =>  <ListGroupItem key={i}>{p.name} </ListGroupItem>  )}
                 </ListGroup>
-                <Row className="show-grid">
+                {cartList.length ? <Row className="show-grid">
                     <NavLink to="/Orders" activeClassName="active" value="Checkout">Checkout</NavLink>
-                </Row>
+                </Row> : null }
             </Grid>
         )
     }
@@ -23,6 +27,8 @@ class Cart extends React.Component {
 
 
 function mapStateToProps(state) {
+    localStorage.setItem('pizzaOrder', JSON.stringify(state.cartList));
+
     return {
         cartList: state.cartList.cart
     }

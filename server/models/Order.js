@@ -1,7 +1,6 @@
 
-function Order() {
-    // taka inn order
-    /* Define some properties for the order */
+function Order(order) {
+    this.order = JSON.parse(order);
 };
 
 module.exports = Order;

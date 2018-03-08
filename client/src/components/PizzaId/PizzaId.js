@@ -16,9 +16,9 @@ export class PizzaId extends React.Component {
     }*/
     componentDidMount() {
         const { getPizzaById } = this.props;
-        const { match: { params } } = this.props;
-        console.log('params ' + params.Id);
-        getPizzaById(params.Id);
+        const { match } = this.props;
+        console.log('this.props'+this.props);
+        getPizzaById(match.params.Id);
     }
 
     handleOnClickCart (pizza) {
@@ -26,7 +26,6 @@ export class PizzaId extends React.Component {
         addToCart(pizza);
         // TODO: error check
         toastr.success('Product added to cart', 'Success');
-
     }
     
     render() {

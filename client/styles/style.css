@@ -88,11 +88,11 @@ a {
 .company-name:hover {
   color :lightgray;
 }
-.nav-link-wrapper {
-  float:right;
-  background-color:white;
-}
 
 .link {
   color:white;
+}
+
+.welcome-text {
+  margin-bottom: 50px;
 }
