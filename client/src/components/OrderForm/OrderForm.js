@@ -25,6 +25,9 @@ class OrderForm extends React.Component {
     onFormSubmit(e) {
         e.preventDefault();
 
+        const { name, address, city, telephone, postCode } = this.state.fields;
+        if (name === '' || address === '' || city === '' || telephone === '' || postCode === '') { return false; }
+
         // setur í localstorage
         //localStorage.setItem('userData', JSON.stringify(this.state.fields));
 
@@ -38,25 +41,6 @@ class OrderForm extends React.Component {
         let fields = Object.assign({}, this.state.fields);
         fields[e.target.name] = e.target.value;
         this.setState({ fields });
-    };
-
-    onFormSubmit(e) {
-        e.preventDefault();
-        const { name, address, city, telephone, postCode } = this.state.fields;
-        if (name === '' || address === '' || city === '' || telephone === '' || postCode === '') { return false; }
-        console.log('fields state ' + this.state.fields);
-        localStorage.setItem('userInfo', this.state.fields);
-        this.setState(initialState);
-
-    };
-
-    onClickButton () {
-        const cachedHits = localStorage.getItem('userInfo');
-        console.log(cachedHits);
-        if (cachedHits) {
-            this.setState({ cachedHits });
-            return;
-        }
     };
 
     render() {
