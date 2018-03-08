@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import TextInput from '../TextInput/TextInput';
-import validator from 'validator';
 import { connect } from 'react-redux';
+import validator from 'validator';
 import { Grid, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { postOrder } from '../../actions/orderActions';
 import Cart from '../Cart/Cart';
 
-class WizardForm extends Component {
+class Order extends Component {
     constructor(props) {
         super(props);
         this.nextPage = this.nextPage.bind(this);
@@ -38,10 +38,7 @@ class WizardForm extends Component {
 
     handleClick (e) {
         let isDel = e.target.value;
-        console.log('let ' + isDel);
-
         this.setState({isDelivery: isDel});
-
     }
 
     onFormSubmitDelivery(e) {
@@ -54,7 +51,6 @@ class WizardForm extends Component {
         var userData = JSON.parse(localStorage.getItem('userData'));
         // hreinsa state-ið
 
-        console.log(userData);
         this.nextPage();
     };
 
@@ -66,9 +62,7 @@ class WizardForm extends Component {
 
         // sækir úr localstorage, færa annað
         var userData = JSON.parse(localStorage.getItem('userData'));
-        // hreinsa state-ið
 
-        console.log(userData);
         this.nextPage();
     };
 
@@ -83,7 +77,6 @@ class WizardForm extends Component {
         const { fields } = this.state;
         const { name, address, city, telephone, postCode } = this.state.fields;
         const order = localStorage.getItem('pizzaOrder');
-        console.log(order);
         if (order) {
             postOrder(JSON.parse(order), telephone);
         }
@@ -213,10 +206,6 @@ class WizardForm extends Component {
     }
 }
 
-/*WizardForm.propTypes = {
-    isDelivery: PropTypes.bool.isRequired
-};*/
-
 const mapStateToProps = (state) => {
     return {
         order: state.cartList.cart
@@ -224,4 +213,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { postOrder })(WizardForm);
+export default connect(mapStateToProps, { postOrder })(Order);

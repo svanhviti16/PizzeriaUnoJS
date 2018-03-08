@@ -8,23 +8,17 @@ import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 
 
-
-
 export class PizzaId extends React.Component {
-    /* constructor(props) {
-        super(props);
-    }*/
+
     componentDidMount() {
         const { getPizzaById } = this.props;
         const { match } = this.props;
-        console.log('this.props'+this.props);
         getPizzaById(match.params.Id);
     }
 
     handleOnClickCart (pizza) {
         const { addToCart } = this.props;
         addToCart(pizza);
-        // TODO: error check
         toastr.success('Product added to cart', 'Success');
     }
     
@@ -49,7 +43,6 @@ export class PizzaId extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    //console.log("mapSteteToProps" + state);
     return {
         pizzaId: state.pizzaId
     }

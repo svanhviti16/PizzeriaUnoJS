@@ -9,6 +9,7 @@ export class Menu extends React.Component {
         const { getAllPizzas } = this.props;
         getAllPizzas();
     }
+    
     render () {
         const { pizza } = this.props;
         return (
@@ -20,9 +21,9 @@ export class Menu extends React.Component {
 };
 
 const mapStateToProps = (state) => {
-    
     return {
         pizza: state.pizza
     }
 }
+
 export default connect(mapStateToProps, { getAllPizzas })(Menu);

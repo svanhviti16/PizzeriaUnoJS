@@ -11,8 +11,7 @@ import Offers from './src/components/Offers/Offers.js';
 import AboutUs from './src/components/AboutUs/AboutUs.js';
 import Cart from './src/components/Cart/Cart.js';
 import PizzaId from './src/components/PizzaId/PizzaId';
-import WizardForm from './src/components//WizardForm/WizardForm';
-
+import Order from './src/components//Order/Order';
 
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
@@ -33,7 +32,7 @@ export default class App extends Component {
                     <Route path='/Offers'component={Offers} ></Route>
                     <Route path='/AboutUs'component={AboutUs} ></Route>
                     <Route path='/Cart'component={Cart} ></Route>
-                    <Route path='/Orders' component={WizardForm} ></Route>
+                    <Route path='/Orders' component={Order} ></Route>
 
                 </Switch>
             </div>

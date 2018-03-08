@@ -10,8 +10,6 @@ const AboutUs = () => {
                 <p>Address: Pizza Street 55, Miami, FL</p>
                 <p>telephone: 305-740-4813</p>
                 <p>email: pizza@pizzeriauno.com</p>
-
-
             </div>
         </Grid>
     )

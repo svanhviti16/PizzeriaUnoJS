@@ -1,5 +1,4 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
 import NavBarLinkWrapper from '../NavBarLinkWrapper/NavBarLinkWrapper.js';
 import { NavLink, Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
@@ -7,16 +6,8 @@ import { Nav } from 'react-bootstrap';
 
 
 export default class Header extends React.Component {
-
-
     render () {
         const logo = require('../../../resources/img/pizza_logo.png');
-        /** 
-                             <div className="imgs">
-                        
-                    </div>
-        */
-
         return (
             <nav className="navbar navbar-inverse fixed-top">
                 <div className="container-fluid">
