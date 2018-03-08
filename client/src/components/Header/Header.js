@@ -21,9 +21,9 @@ export default class Header extends React.Component {
             <nav className="navbar navbar-inverse fixed-top">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <div className="navbar-brand"><Link to={'/pizzas'}><img id="logo" src={logo} />Pizzeria Uno</Link></div>
+                        <div className="navbar-brand"><Link className="company-name" to={'/pizzas'}><img id="logo" src={logo} />Pizzeria Uno</Link></div>
                     </div>
-                    <NavBarLinkWrapper >
+                    <NavBarLinkWrapper className="nav-link-wrapper">
                         <li><NavLink
                             to="/"
                             activeClassName="active"

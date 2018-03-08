@@ -61,11 +61,38 @@
 }
 
 #logo {
-  width: 50px;
+  width:60px;
   filter: invert(100%);
   padding: 5px;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+.navbar {
+  background-color: darkred;
+  padding: 20px;
+}
+
+.company-name {
+  color: white;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.company-name:visited {
+  color: white;
+}
+
+.company-name:hover {
+  color :lightgray;
+}
+.nav-link-wrapper {
+  float:right;
+  background-color:white;
+}
+
+.link {
+  color:white;
 }

@@ -38,10 +38,6 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        new HtmlWebpackPlugin( { title: 'Redux template', template: './index.html', inject: 'body' }),    
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMapFilename: 'sourcemap.js.map',
-            sourceMap: true,
-        })
+        new HtmlWebpackPlugin( { title: 'Redux template', template: './index.html', inject: 'body' })
     ]
 }
