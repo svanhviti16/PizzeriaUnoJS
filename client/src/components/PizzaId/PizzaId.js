@@ -10,20 +10,21 @@ import toastr from 'toastr';
 
 
 
-class PizzaId extends React.Component {
+export class PizzaId extends React.Component {
     /* constructor(props) {
         super(props);
     }*/
     componentDidMount() {
         const { getPizzaById } = this.props;
         const { match: { params } } = this.props;
-        console.log('id ' + params.Id);
+        console.log('params ' + params.Id);
         getPizzaById(params.Id);
     }
 
     handleOnClickCart (pizza) {
         const { addToCart } = this.props;
         addToCart(pizza);
+        // TODO: error check
         toastr.success('Product added to cart', 'Success');
 
     }

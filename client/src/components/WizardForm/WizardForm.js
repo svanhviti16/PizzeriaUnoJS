@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 import WizardFormFirstPage from '../WizardFormFirstPage/WizardFormFirstPage';
 import WizardFormSecondPage from '../WizardFormSecondPage/WizardFormSecondPage';
 import WizardFormThirdPage from '../WizardFormThirdPage/WizardFormThirdPage';
@@ -25,13 +25,15 @@ class WizardForm extends Component {
     }
 
     handleClickDelivery () {
-        this.setState({isDelivery: true})
-        console.log('isDelivery ' + this.state.isDelivery);
+        this.setState({isDelivery: true}, () => {
+            console.log('isDelivery á að vera true: ' + this.state.isDelivery)
+        });
     }
 
     handleClickPickup () {
-        this.setState({isDelivery: false })
-        console.log('isDelivery inn í pickup þar sem isDelivery a að verða false ' + this.state.isDelivery);
+        this.setState({isDelivery: false}, () => {
+            console.log('Pickup, isDelivery a að verða false: ' + this.state.isDelivery);
+        });
     }
 
 
@@ -41,7 +43,7 @@ class WizardForm extends Component {
         const { page } = this.state;
         return (
             <div>
-                {page === 1 && <WizardFormFirstPage onSubmit={ this.nextPage }  handleDelivery={ this.handleClickDelivery } handlePickup={  this.handleClickPickup }/>}
+                {page === 1 && <WizardFormFirstPage onSubmit={ this.nextPage } isDelivery={this.isDelivery} handleDelivery={ this.handleClickDelivery } handlePickup={  this.handleClickPickup }/>}
                 {page === 2 &&
           <WizardFormSecondPage
               previousPage={this.previousPage}
@@ -57,8 +59,9 @@ class WizardForm extends Component {
     }
 }
 
-/*WizardForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};*/
+WizardForm.propTypes = {
+    isDelivery: PropTypes.bool.isRequired
+};
+
 
 export default WizardForm;

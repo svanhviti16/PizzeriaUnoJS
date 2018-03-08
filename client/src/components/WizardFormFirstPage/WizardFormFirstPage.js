@@ -12,10 +12,10 @@ const WizardFormFirstPage = props => {
                     <label>Pickup or Delivery</label>
                     <div>
                         <label>
-                            <Field onClick={ handlePickup } name="checkout1" component="input" type="radio" value="pickup" />
+                            <Field onChange={ handlePickup } name="checkout1" component="input" type="radio" value="pickup" />
                             {' '} Pickup pizza</label>
                         <label>
-                            <Field onClick={ handleDelivery } name="checkout1" component="input" type="radio" value="delivery" />
+                            <Field onChange={ handleDelivery } name="checkout1" component="input" type="radio" value="delivery" />
                             {' '}Have pizza delivered
                         </label>
                     </div>
